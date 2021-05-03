@@ -50,7 +50,7 @@ bool isMatch(string A,string B)
 			else{   //非空正则分为两种情况* 和 非*
 				
 				if(B[j-1]!='*'){
-					if(i>0 && (A[i-1]==B[j-1] || B[j-1]=='.')){
+					if(i>0 && (A[i-1]==B[j-1] || B[j-1]=='.')){ //括号要注意
 						dp[i][j]=dp[i-1][j-1];
 					}
 				}else{  //配到了*
@@ -58,7 +58,7 @@ bool isMatch(string A,string B)
 						dp[i][j] = dp[i][j] ||  dp[i][j-2];
 					}
 					//看
-					if(i>=1&&j>=2&&(A[i-1]==B[j-2]||B[j-2]=='.')){
+					if(i>=1&&j>=2&&(A[i-1]==B[j-2]||B[j-2]=='.')){ //括号要注意
 						dp[i][j] =dp[i][j] ||  dp[i-1][j];
 					}
 				}
